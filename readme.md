@@ -13,8 +13,7 @@
 
 
 ## 安装
-1.  将`sendKeyCode.dll`放到输入法根目录，MacOS与Linux请自行编译
-`Rime/weasel-0.xx.x`，与`rime.dll`在同一级
+1.  将`sendKeyCode.dll`放到输入法根目录`Rime/weasel-0.xx.x`，与`rime.dll`在同一级，MacOS与Linux请自行编译并放置到对应位置
 2. 将`revert`文件夹下的`revert.lua`放到输入法目录下的`lua`文件夹
 3. `rime.lua`中引用该脚本，
     新增一行
@@ -41,4 +40,4 @@
 
 ## 常见问题
 ### 输入后没有反应
-检查定义的撤回输入码是否都是编码字符，
+检查定义的撤回输入码是否都是编码字符，与rime.dll是否兼容
