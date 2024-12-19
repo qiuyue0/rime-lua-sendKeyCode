@@ -1,6 +1,7 @@
 #include <lua.h>
 #include <lauxlib.h>
 #include <lualib.h>
+#include "keycodes.h"
 
 #if defined(_WIN32)
 #include <windows.h>
@@ -19,7 +20,7 @@ static void press_key(const char* keyName, int count) {
     ip.ki.wScan = 0;
     ip.ki.time = 0;
     ip.ki.dwExtraInfo = 0;
-    ip.ki.wVk = VkKeyScan(*keyName);  // Assumes first character of keyName is the key to press
+    ip.ki.wVk = getKeyCode(keyName);//VkKeyScan(*keyName);  
     ip.ki.dwFlags = 0;  // 0 for key press
     for (int i = 0; i < count; i++) {
         SendInput(1, &ip, sizeof(INPUT));
