@@ -33,4 +33,6 @@
 
 ## 常见问题
 ### 输入后没有反应
-检查定义的撤回输入码是否都是编码字符，与rime.dll是否兼容
+检查定义的撤回输入码是否都是编码字符，检查该dll使用的rime.dll与你的输入法目录中的rime.dll是否兼容
+### 如何debug
+使用`log.info()`、`log.warning()`、`log.error()`输出日志，在windows下低版本小狼毫日志输出在`%temp%`，高版本小狼毫在`%temp%/Rime`
