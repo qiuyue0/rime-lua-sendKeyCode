@@ -1,0 +1,25 @@
+# Rime schema settings
+# encoding: utf-8
+schema:
+  schema_id: 092wb
+  name: "092五笔"
+  version: "2024.04.07"
+  author:
+    - 发明人 行走的风景
+  description: |
+    092五笔
+  dependencies:   # 依赖
+    - core        # 引入自定义过滤
+    - py          # 反查
+    - wb_spelling # 引入拆分
+
+engine:
+  filters:
+    ...
+  processors:
+    ...
+  segmentors:
+    ...
+  translators:
+    ...
+    - lua_translator@revert
