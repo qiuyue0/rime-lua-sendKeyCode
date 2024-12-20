@@ -15,12 +15,14 @@
     revert = require("revert")
     ```
     参考本项目`revert/rime.lua`
-4. 在你所使用的方案`xxx.schema.yaml`中`engine/translators`添加`lua_translator`
+4. 在你所使用的方案`xxx.schema.yaml`中`engine/translators`添加`lua_translator`，并且你所定义的撤回编码需要在字母表中
     ```yaml
         engine:
             translators:
                 ...这里是其他的translators
-                - lua_translator@revert #在translaotrs末尾添加
+                - lua_translator@revert # 在translaotrs末尾添加
+        speller:
+            alphabet: zyxwvutsrqponmlkjihgfedcba; # 这里我使用的;u作为撤回编码，因此还需要将分号;添加到alphabet
     ``` 
     参考`revert/example.schema.yaml`
 5. 部署，打字上屏，使用`;u`撤回上屏内容（如果分号不是编码字符，请自行修改）

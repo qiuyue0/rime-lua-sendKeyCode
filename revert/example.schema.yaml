@@ -23,3 +23,7 @@ engine:
   translators:
     ...
     - lua_translator@revert
+
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba; # 你所定义的撤回编码需要在字母表中
