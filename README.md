@@ -1,12 +1,13 @@
 # lua撤回上屏扩展dll
 
 ## 编译
-当本仓库提供的dll文件无法使用，或您为MacOS或者Linux用户时，需要自行编译，将当前目录设置为工作文件夹，执行`make`(MacOS与Linux未测试)
-### 依赖
-`gcc`、`make`，将你的输入法中`rime.dll`复制到该文件夹下
+0. 当本仓库提供的dll文件无法使用，或您为MacOS或者Linux用户时，需要自行编译
+1. 安装`gcc`、`make`
+2. 将你的输入法中`rime.dll`复制到该文件夹下
+3. 执行`make`进行编译(MacOS与Linux未测试)
 
 ## 安装
-1.  将`sendKeyCode.dll`放到输入法根目录`weasel-0.xx.x`，与`rime.dll`在同一级，MacOS与Linux请自行编译并放置到对应位置
+1. 将`sendKeyCode.dll`放到输入法根目录`weasel-0.xx.x`，与`rime.dll`在同一级，MacOS与Linux请自行编译`.so`文件并放置到对应位置
 2. 将`revert`文件夹下的`revert.lua`放到输入法目录下的`lua`文件夹
 3. `rime.lua`中引用该脚本，
     新增一行
