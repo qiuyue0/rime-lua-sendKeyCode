@@ -16,7 +16,7 @@
             /Library/Input Methods/Squirrel.app/Contents/Frameworks/rime-plugins/librime-lua.dylib
             </details>
 2. 当本仓库提供的文件无法使用，或您为Linux用户时，需要自行编译
-3. 将输入法中`librime-lua`复制到项目文件夹`rime-lua-sendKeyCode`下
+3. 将输入法中`librime-lua.dylib`或`rime.dll`复制到项目文件夹`rime-lua-sendKeyCode`下
 4. 执行`make`进行编译(Linux未测试)
 
 ## 安装
