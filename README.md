@@ -23,10 +23,10 @@
 1. [下载](https://github.com/qiuyue0/rime-lua-sendKeyCode/releases/tag/v1.0)最新的预编译文件，或自行编译
 2. - `Windows`
         - 将`sendKeyCode.dll`放到输入法根目录`weasel-0.xx.x`，与`rime.dll`在同一级
-        - 复制本项目`revert`文件夹下的`revert.lua`至`weasel-0.xx.x/data/lua`文件夹下
+        - 复制本项目文件夹下的`revert.lua`至`weasel-0.xx.x/data/lua`文件夹
     - `MacOS`
         - 将`sendKeyCode.so`放至`$HOME/Library/Rime/lua`
-        - 复制本项目`revert`文件夹下的`revert.lua`至`$HOME/Library/Rime/lua`
+        - 复制本项目文件夹下的`revert.lua`至`$HOME/Library/Rime/lua`文件夹
 <!-- 3. `rime.lua`中引用该脚本，
     新增一行
     ```lua
@@ -42,7 +42,7 @@
     speller:
         alphabet: zyxwvutsrqponmlkjihgfedcba; # 这里我使用的;u作为撤回编码，因此还需要将分号;添加到alphabet，按实际情况设置
     ``` 
-    参考`revert/example.schema.yaml`
+    参考`example/example.schema.yaml`
 4. 部署，打字上屏，使用`;u`撤回上屏内容，`;n`发送`End`（如果分号不是编码字符，请自行修改）
 
 ## 自定义
