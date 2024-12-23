@@ -3,14 +3,15 @@
 
 #if defined(_WIN32)
 #include <windows.h>
+SHORT getKeyCode(const char* keyName);
 #elif defined(__APPLE__)
-#include <Carbon/Carbon.h>  // 需要使用 Carbon 框架进行键码的查找
+#include <ApplicationServices/ApplicationServices.h>
+#include <Carbon/Carbon.h>
+CGKeyCode getKeyCode(const char* keyName);
 #else
 #include <X11/keysym.h>
 #include <X11/Xlib.h>
+unsigned short getKeyCode(const char* keyName);
 #endif
-
-// 通用函数声明
-SHORT getKeyCode(const char* keyName);
 
 #endif // KEYCODES_H

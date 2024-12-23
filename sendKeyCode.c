@@ -5,11 +5,14 @@
 
 #if defined(_WIN32)
 #include <windows.h>
+#define EXPORT __declspec(dllexport)
 #elif defined(__APPLE__)
 #include <ApplicationServices/ApplicationServices.h>
+#define EXPORT  __attribute__((visibility("default")))
 #else
 #include <X11/Xlib.h>
 #include <X11/extensions/XTest.h>
+#define EXPORT  __attribute__((visibility("default")))
 #endif
 
 static void press_key(const char* keyName, int count) {
@@ -31,8 +34,9 @@ static void press_key(const char* keyName, int count) {
 #elif defined(__APPLE__)
     // macOS implementation
     CGEventRef eventDown, eventUp;
-    eventDown = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)*keyName, true);
-    eventUp = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)*keyName, false);
+    CGKeyCode keyCode = getKeyCode(keyName); 
+    eventDown = CGEventCreateKeyboardEvent(NULL, keyCode, true);
+    eventUp = CGEventCreateKeyboardEvent(NULL, keyCode, false);
     for (int i = 0; i < count; i++) {
         CGEventPost(kCGHIDEventTap, eventDown);
         CGEventPost(kCGHIDEventTap, eventUp);
@@ -65,7 +69,7 @@ static const struct luaL_Reg mylib [] = {
     {NULL, NULL}
 };
 
-__declspec(dllexport) int luaopen_sendKeyCode(lua_State *L) {
+EXPORT int luaopen_sendKeyCode(lua_State *L) {
     luaL_newlib(L, mylib);
     return 1;
 }

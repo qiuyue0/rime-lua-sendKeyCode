@@ -1,3 +1,4 @@
 rime.dll
 test.dll
 *.o
+.DS_Store

@@ -1,11 +1,11 @@
 CC = gcc
-CFLAGS = -Ilua -lrime -L.
+CFLAGS = -Ilua -L.
 
 SRC = sendKeyCode.c keycodes.c
 OBJ = $(SRC:.c=.o)
 
 ifeq ($(OS),Windows_NT)
-    LIBS = -luser32
+    LIBS = -luser32 -lrime
 	TARGET = sendKeyCode.dll
 	RM = del /Q
 	FIX_PATH = $(subst /,\,$1)
@@ -16,7 +16,7 @@ else
         TARGET = sendKeyCode.so
     endif
     ifeq ($(UNAME_S), Darwin)
-        LIBS = -framework ApplicationServices
+        LIBS = -framework ApplicationServices -lrime-lua
         TARGET = sendKeyCode.so
     endif
 	RM = rm -f
