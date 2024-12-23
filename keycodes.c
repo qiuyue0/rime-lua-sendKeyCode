@@ -88,19 +88,14 @@ CGKeyCode getKeyCode(const char* keyName) {
     return -1;
 }
 #else
-unsigned short getKeyCode(const char* keyName) {
+KeySym getKeyCode(const char* keyName) {
     if (keyName == NULL) {
         return -1; // Invalid key name
     }
     // Linux 占位
     Display *display = XOpenDisplay(NULL);
     if (!display) return -1; // 无法打开显示
-    KeyCode kc = 0;
-    if (strcmp(keyName, "Shift") == 0) kc = XKeysymToKeycode(display, XK_Shift_L);
-    else if (strcmp(keyName, "Control") == 0) kc = XKeysymToKeycode(display, XK_Control_L);
-    else if (strcmp(keyName, "Alt") == 0) kc = XKeysymToKeycode(display, XK_Alt_L);
-    else kc = XKeysymToKeycode(display, XStringToKeysym(keyName)); // 处理其他键
-    XCloseDisplay(display);
-    return (int)kc;
+    KeySym keysym = XStringToKeysym(keyName);
+    return -1;
 }
 #endif

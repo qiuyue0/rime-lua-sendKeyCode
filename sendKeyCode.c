@@ -47,10 +47,10 @@ static void press_key(const char* keyName, int count) {
     // Linux implementation (requires X11)
     Display *display = XOpenDisplay(NULL);
     if (display == NULL) return;  // Handle error appropriately
-    KeyCode kc = XKeysymToKeycode(display, XStringToKeysym(keyName));
+    KeySym keysym = getKeyCode(keyName);
     for (int i = 0; i < count; i++) {
-        XTestFakeKeyEvent(display, kc, True, 0);
-        XTestFakeKeyEvent(display, kc, False, 0);
+        XTestFakeKeyEvent(display, keysym, True, 0);
+        XTestFakeKeyEvent(display, keysym, False, 0);
         XFlush(display);
     }
     XCloseDisplay(display);

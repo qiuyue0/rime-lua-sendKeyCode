@@ -11,7 +11,8 @@ CGKeyCode getKeyCode(const char* keyName);
 #else
 #include <X11/keysym.h>
 #include <X11/Xlib.h>
-unsigned short getKeyCode(const char* keyName);
+#include <X11/keysymdef.h>
+KeySym getKeyCode(const char* keyName);
 #endif
 
 #endif // KEYCODES_H
