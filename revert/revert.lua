@@ -12,9 +12,9 @@ end
 OS = getOS()
 
 if OS == "Darwin" then 
-    package.cpath = os.getenv("HOME") .. "/Library/Rime/lua/ace/lib/?.so;" .. package.cpath 
+    package.cpath = os.getenv("HOME") .. "/Library/Rime/lua/?.so;" .. package.cpath 
 elseif OS == "Linux" then 
-    package.cpath = os.getenv("HOME") .. "/.config/Rime/ace/lib/?.so;" .. package.cpath
+    package.cpath = os.getenv("HOME") .. "/.config/Rime/lua/?.so;" .. package.cpath
 -- Windows直接和rime.dll放一块得了
 end
 
