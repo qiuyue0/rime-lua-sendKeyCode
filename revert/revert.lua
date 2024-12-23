@@ -1,9 +1,25 @@
-SendKeyCode = require("sendKeyCode")
-
 local SPECIFIED_INPUT = ";u" -- 定义撤回上屏编码
 local STACK_SIZE = 10        -- 定义栈大小，表示可以连续撤回的最大次数
 
--- log.error("撤回上屏输入码为："..SPECIFIED_INPUT)
+function getOS()
+	local fh,err = assert(io.popen("uname -o 2>/dev/null","r"))
+	if fh then
+		osname = fh:read()
+	end
+	return osname or ""
+end
+
+OS = getOS()
+
+if OS == "Darwin" then 
+    package.cpath = os.getenv("HOME") .. "/Library/Rime/lua/ace/lib/?.so;" .. package.cpath 
+elseif OS == "Linux" then 
+    package.cpath = os.getenv("HOME") .. "/.config/Rime/ace/lib/?.so;" .. package.cpath
+-- Windows直接和rime.dll放一块得了
+end
+
+SendKeyCode = require("sendKeyCode") -- 文件名不能变，只能是sendKeyCode.so或dll
+
 -- 创建一个固定大小的栈
 local function create_stack(max_size)
     local stack = {}
@@ -32,6 +48,9 @@ local function handle(input, seg, env)
         env.engine.context:clear()
         local n = env.stack:pop() or 1 -- 从栈中弹出一个数字
         SendKeyCode.press_key("\b", n)
+    elseif input == ";n" then
+        env.engine.context:clear()
+        SendKeyCode.press_key("END", 1)
     end
 end
 
@@ -39,7 +58,6 @@ end
 local function on_commit(text, env)
     local length = utf8.len(text) -- 计算上屏文字长度
     env.stack:push(length) -- 将长度压入栈
-    -- print("上屏文字:", text, "长度:", length, "当前栈内容:", table.concat(env.length_stack:get_all(), ", "))
 end
 
 -- 初始化环境
