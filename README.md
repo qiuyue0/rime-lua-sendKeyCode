@@ -20,7 +20,8 @@
 4. 执行`make`进行编译(Linux未测试)
 
 ## 安装
-1. - `Windows`
+1. [下载](https://github.com/qiuyue0/rime-lua-sendKeyCode/releases/tag/v1.0)最新的预编译文件，或自行编译
+2. - `Windows`
         - 将`sendKeyCode.dll`放到输入法根目录`weasel-0.xx.x`，与`rime.dll`在同一级
         - 复制本项目`revert`文件夹下的`revert.lua`至`weasel-0.xx.x/data/lua`文件夹下
     - `MacOS`
@@ -32,7 +33,7 @@
     revert = require("revert")
     ```
     参考本项目`revert/rime.lua` -->
-2. 在你所使用的方案`xxx.schema.yaml`中`engine/translators`添加`lua_translator`，并且你所定义的撤回编码需要在字母表中
+3. 在你所使用的方案`xxx.schema.yaml`中`engine/translators`添加`lua_translator`，并且你所定义的撤回编码需要在字母表中
     ```yaml
     engine:
         translators:
@@ -42,7 +43,7 @@
         alphabet: zyxwvutsrqponmlkjihgfedcba; # 这里我使用的;u作为撤回编码，因此还需要将分号;添加到alphabet，按实际情况设置
     ``` 
     参考`revert/example.schema.yaml`
-3. 部署，打字上屏，使用`;u`撤回上屏内容，`;n`发送`End`（如果分号不是编码字符，请自行修改）
+4. 部署，打字上屏，使用`;u`撤回上屏内容，`;n`发送`End`（如果分号不是编码字符，请自行修改）
 
 ## 自定义
 修改`revert.lua`中的常量
