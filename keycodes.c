@@ -6,15 +6,39 @@ SHORT getKeyCode(const char* keyName) {
         return -1; // Invalid key name
     }
     // Windows 版本
-    if (strcmp(keyName, "SHIFT") == 0) return VK_SHIFT;
-    if (strcmp(keyName, "CONTROL") == 0) return VK_CONTROL;
-    if (strcmp(keyName, "CTRL") == 0) return VK_CONTROL;
-    if (strcmp(keyName, "ALT") == 0) return VK_MENU;
-    if (strcmp(keyName, "HOME") == 0) return VK_HOME;
-    if (strcmp(keyName, "END") == 0) return VK_END;
-    if (strcmp(keyName, "TAB") == 0) return VK_TAB;
-    if (strcmp(keyName, "RETURN") == 0) return VK_RETURN;
-    if (strcmp(keyName, "CAPSLOCK") == 0) return VK_CAPITAL;
+    if (strcmp(keyName, "SHIFT") == 0)          return VK_SHIFT;
+    if (strcmp(keyName, "CONTROL") == 0)        return VK_CONTROL;
+    if (strcmp(keyName, "CTRL") == 0)           return VK_CONTROL;
+    if (strcmp(keyName, "ALT") == 0)            return VK_MENU;
+    if (strcmp(keyName, "HOME") == 0)           return VK_HOME;
+    if (strcmp(keyName, "END") == 0)            return VK_END;
+    if (strcmp(keyName, "TAB") == 0)            return VK_TAB;
+    if (strcmp(keyName, "RETURN") == 0)         return VK_RETURN;
+    if (strcmp(keyName, "CAPSLOCK") == 0)       return VK_CAPITAL;
+
+    // 方向键
+    if (strcmp(keyName, "LEFT") == 0)           return VK_LEFT;
+    if (strcmp(keyName, "RIGHT") == 0)          return VK_RIGHT;
+    if (strcmp(keyName, "UP") == 0)             return VK_UP;
+    if (strcmp(keyName, "DOWN") == 0)           return VK_DOWN;
+
+    // 小键盘
+    if (strcmp(keyName, "KeypadDecimal") == 0)  return VK_DECIMAL;
+    if (strcmp(keyName, "KeypadMultiply") == 0) return VK_MULTIPLY;
+    if (strcmp(keyName, "KeypadAdd") == 0)      return VK_ADD;
+    if (strcmp(keyName, "KeypadDivide") == 0)   return VK_DIVIDE;
+    if (strcmp(keyName, "KeypadMinus") == 0)    return VK_SUBTRACT;
+    if (strcmp(keyName, "Keypad0") == 0)        return VK_KEYPAD0;
+    if (strcmp(keyName, "Keypad1") == 0)        return VK_KEYPAD1;
+    if (strcmp(keyName, "Keypad2") == 0)        return VK_KEYPAD2;
+    if (strcmp(keyName, "Keypad3") == 0)        return VK_KEYPAD3;
+    if (strcmp(keyName, "Keypad4") == 0)        return VK_KEYPAD4;
+    if (strcmp(keyName, "Keypad5") == 0)        return VK_KEYPAD5;
+    if (strcmp(keyName, "Keypad6") == 0)        return VK_KEYPAD6;
+    if (strcmp(keyName, "Keypad7") == 0)        return VK_KEYPAD7;
+    if (strcmp(keyName, "Keypad8") == 0)        return VK_KEYPAD8;
+    if (strcmp(keyName, "Keypad9") == 0)        return VK_KEYPAD9;
+
     SHORT vkCode = VkKeyScanA(keyName[0]); // 处理单字符键
     if (vkCode == -1) return -1;
     return vkCode & 0xFF; // 只返回虚拟键码部分
@@ -73,11 +97,37 @@ CGKeyCode getKeyCode(const char* keyName) {
     if (strcmp(keyName, "\t") == 0) return kVK_Tab;          // Tab
     if (strcmp(keyName, "ESC") == 0) return kVK_Escape;      // Escape
 
+    // 方向键
+    if (strcmp(keyName, "LEFT") == 0) return kVK_LeftArrow;          // 方向键:左
+    if (strcmp(keyName, "RIGHT") == 0) return kVK_RightArrow;          // 方向键:右
+    if (strcmp(keyName, "UP") == 0) return kVK_UpArrow;          // 方向键:上
+    if (strcmp(keyName, "DOWN") == 0) return kVK_DownArrow;          // 方向键:下
+
     // 修改键
-    if (strcmp(keyName, "SHIFT") == 0) return kVK_Shift;     // Shift
+    if (strcmp(keyName, "SHIFT") == 0) return   kVK_Shift;     // Shift
     if (strcmp(keyName, "CONTROL") == 0) return kVK_Control; // Control
-    if (strcmp(keyName, "OPTION") == 0) return kVK_Option;   // Option
+    if (strcmp(keyName, "OPTION") == 0) return  kVK_Option;   // Option
     if (strcmp(keyName, "COMMAND") == 0) return kVK_Command; // Command
+
+    // 小键盘
+    if (strcmp(keyName, "KeypadDecimal") == 0) return kVK_ANSI_KeypadDecimal;
+    if (strcmp(keyName, "KeypadMultiply") == 0) return kVK_ANSI_KeypadMultiply;
+    if (strcmp(keyName, "KeypadPlus") == 0) return kVK_ANSI_KeypadPlus;
+    if (strcmp(keyName, "KeypadClear") == 0) return kVK_ANSI_KeypadClear;
+    if (strcmp(keyName, "KeypadDivide") == 0) return kVK_ANSI_KeypadDivide;
+    if (strcmp(keyName, "KeypadEnter") == 0) return kVK_ANSI_KeypadEnter;
+    if (strcmp(keyName, "KeypadMinus") == 0) return kVK_ANSI_KeypadMinus;
+    if (strcmp(keyName, "KeypadEquals") == 0) return kVK_ANSI_KeypadEquals;
+    if (strcmp(keyName, "Keypad0") == 0) return kVK_ANSI_Keypad0;
+    if (strcmp(keyName, "Keypad1") == 0) return kVK_ANSI_Keypad1;
+    if (strcmp(keyName, "Keypad2") == 0) return kVK_ANSI_Keypad2;
+    if (strcmp(keyName, "Keypad3") == 0) return kVK_ANSI_Keypad3;
+    if (strcmp(keyName, "Keypad4") == 0) return kVK_ANSI_Keypad4;
+    if (strcmp(keyName, "Keypad5") == 0) return kVK_ANSI_Keypad5;
+    if (strcmp(keyName, "Keypad6") == 0) return kVK_ANSI_Keypad6;
+    if (strcmp(keyName, "Keypad7") == 0) return kVK_ANSI_Keypad7;
+    if (strcmp(keyName, "Keypad8") == 0) return kVK_ANSI_Keypad8;
+    if (strcmp(keyName, "Keypad9") == 0) return kVK_ANSI_Keypad9;
 
     // 其他常用键
     if (strcmp(keyName, "HOME") == 0) return kVK_Home;       // Home

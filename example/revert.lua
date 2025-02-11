@@ -2,7 +2,7 @@ local SPECIFIED_INPUT = ";u" -- 定义撤回上屏编码
 local STACK_SIZE = 10        -- 定义栈大小，表示可以连续撤回的最大次数
 
 function getOS()
-    local fh,err = assert(io.popen("uname -o 2>/dev/null","r"))
+    local fh,err = assert(io.popen("uname -s 2>/dev/null","r"))
     if fh then
         osname = fh:read()
     end

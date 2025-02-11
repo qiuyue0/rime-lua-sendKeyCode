@@ -1,5 +1,6 @@
-rime.dll
-test.dll
-*.o
 .DS_Store
 .vscode
+*.dll
+*.o
+*.so
+*.dylib

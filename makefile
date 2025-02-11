@@ -16,9 +16,10 @@ else
         TARGET = sendKeyCode.so
     endif
     ifeq ($(UNAME_S), Darwin)
-        LIBS = -framework ApplicationServices -lrime-lua
+        LIBS = -framework ApplicationServices
         TARGET = sendKeyCode.so
     endif
+    LIBS +=  -lrime-lua
 	RM = rm -f
 	FIX_PATH = $1
 endif
@@ -26,14 +27,12 @@ endif
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(CC) -shared -o $@ $^ $(CFLAGS) $(LIBS)
+	$(CC) -shared -fPIC -o $@ $^ $(CFLAGS) $(LIBS) -O2
 
 %.o: %.c
 	$(CC) -c $< -o $@ $(CFLAGS)
 
-clean_all:
-	$(RM) $(call FIX_PATH,$(OBJ),$(TARGET))
 clean:
-	$(RM) $(call FIX_PATH,$(OBJ))
+	$(RM) $(call FIX_PATH,$(OBJ),$(TARGET))
 
 .PHONY: all clean
