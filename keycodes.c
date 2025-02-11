@@ -23,21 +23,21 @@ SHORT getKeyCode(const char* keyName) {
     if (strcmp(keyName, "DOWN") == 0)           return VK_DOWN;
 
     // 小键盘
-    if (strcmp(keyName, "KeypadDecimal") == 0)  return VK_DECIMAL;
-    if (strcmp(keyName, "KeypadMultiply") == 0) return VK_MULTIPLY;
-    if (strcmp(keyName, "KeypadAdd") == 0)      return VK_ADD;
-    if (strcmp(keyName, "KeypadDivide") == 0)   return VK_DIVIDE;
-    if (strcmp(keyName, "KeypadMinus") == 0)    return VK_SUBTRACT;
-    if (strcmp(keyName, "Keypad0") == 0)        return VK_KEYPAD0;
-    if (strcmp(keyName, "Keypad1") == 0)        return VK_KEYPAD1;
-    if (strcmp(keyName, "Keypad2") == 0)        return VK_KEYPAD2;
-    if (strcmp(keyName, "Keypad3") == 0)        return VK_KEYPAD3;
-    if (strcmp(keyName, "Keypad4") == 0)        return VK_KEYPAD4;
-    if (strcmp(keyName, "Keypad5") == 0)        return VK_KEYPAD5;
-    if (strcmp(keyName, "Keypad6") == 0)        return VK_KEYPAD6;
-    if (strcmp(keyName, "Keypad7") == 0)        return VK_KEYPAD7;
-    if (strcmp(keyName, "Keypad8") == 0)        return VK_KEYPAD8;
-    if (strcmp(keyName, "Keypad9") == 0)        return VK_KEYPAD9;
+    if (strcmp(keyName, "NUMPAD_Decimal") == 0)  return VK_DECIMAL;
+    if (strcmp(keyName, "NUMPAD_Multiply") == 0) return VK_MULTIPLY;
+    if (strcmp(keyName, "NUMPAD_Add") == 0)      return VK_ADD;
+    if (strcmp(keyName, "NUMPAD_Divide") == 0)   return VK_DIVIDE;
+    if (strcmp(keyName, "NUMPAD_Minus") == 0)    return VK_SUBTRACT;
+    if (strcmp(keyName, "NUMPAD_0") == 0)        return VK_NUMPAD0;
+    if (strcmp(keyName, "NUMPAD_1") == 0)        return VK_NUMPAD1;
+    if (strcmp(keyName, "NUMPAD_2") == 0)        return VK_NUMPAD2;
+    if (strcmp(keyName, "NUMPAD_3") == 0)        return VK_NUMPAD3;
+    if (strcmp(keyName, "NUMPAD_4") == 0)        return VK_NUMPAD4;
+    if (strcmp(keyName, "NUMPAD_5") == 0)        return VK_NUMPAD5;
+    if (strcmp(keyName, "NUMPAD_6") == 0)        return VK_NUMPAD6;
+    if (strcmp(keyName, "NUMPAD_7") == 0)        return VK_NUMPAD7;
+    if (strcmp(keyName, "NUMPAD_8") == 0)        return VK_NUMPAD8;
+    if (strcmp(keyName, "NUMPAD_9") == 0)        return VK_NUMPAD9;
 
     SHORT vkCode = VkKeyScanA(keyName[0]); // 处理单字符键
     if (vkCode == -1) return -1;
